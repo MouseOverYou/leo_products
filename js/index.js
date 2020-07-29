@@ -6,6 +6,7 @@ var sceneToRender = null;
 var createDefaultEngine = function () { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true }); };
 var page = document.title
 
+let rain;
 
 /******* Add the create scene function ******/
 var createScene = function () {
@@ -15,7 +16,7 @@ var createScene = function () {
 
     var assetsManager = new BABYLON.AssetsManager(scene)
     LoadAssets(scene, assetsManager, page)
-    camera = new BABYLON.ArcRotateCamera("Camera", -30 * (Math.PI / 180), 90 * (Math.PI / 180), 20, new BABYLON.Vector3(0, 5, 0), scene);
+    camera = new BABYLON.ArcRotateCamera("Camera", -90 * (Math.PI / 180), 90 * (Math.PI / 180), 20, new BABYLON.Vector3(0, 5, 0), scene);
     //camera = new BABYLON.ArcRotateCamera("Camera", 130 * (Math.PI / 180), 90 * (Math.PI / 180), 4, new BABYLON.Vector3(0, 0.5, 0), scene);
     camera.minZ = 1
     camera.panningDistanceLimit = 0;
@@ -29,8 +30,20 @@ var createScene = function () {
     camera.wheelPrecision = 10
     camera.attachControl(canvas, true, true, false);
 
-    scene.clearColor = new BABYLON.Color3(1, 1, 1);
-    scene.ambientColor = new BABYLON.Color3(1, 1, 1);
+    //scene.clearColor = new BABYLON.Color3(0, 0, 0);
+    //scene.ambientColor = new BABYLON.Color3(0, 0, 0);
+    CreateSky(scene)
+
+    
+    rain = BABYLON.ParticleHelper.CreateAsync("rain", scene, false).then((set) => {
+        console.log(set)
+        for(const sys of set.systems) {
+            sys.emitRate = 600
+            sys.maxSize = 5
+
+        }
+        set.start();
+    });
 
 
     scene.onPointerUp = function () {

@@ -32,6 +32,7 @@
             pointer-events: none
         }
     </style>
+    <link rel="stylesheet" href="css/loading_style.css">
     <!-- gsap animation-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.2/gsap.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
@@ -54,13 +55,40 @@
         <p id='debugger-text'>
         </p>
     </div>
-
+        <!--LOADING ANIMATION-->
+        <div id="customLoadingScreenDiv">
+            <div class="loading-balls-container">
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+            </div>
+            <div class="loading-text-container">
+                <div class="loading">
+                    <div class="loading__letter">L</div>
+                    <div class="loading__letter">o</div>
+                    <div class="loading__letter">a</div>
+                    <div class="loading__letter">d</div>
+                    <div class="loading__letter">i</div>
+                    <div class="loading__letter">n</div>
+                    <div class="loading__letter">g</div>
+                    <div class="loading__letter">.</div>
+                    <div class="loading__letter">.</div>
+                    <div class="loading__letter">.</div>
+                </div>
+            </div>
+    
+        </div>
+        <!--FINISH LOADING ANIMATION-->
     <img class="logo" src="assets/Recordbay_Logo.png" alt="logo missing">
 
     <canvas id="renderCanvas" touch-action="none"></canvas>
     <script type="text/javascript" src='js/HelperFunctions.js'></script>
     <script type="text/javascript" src='js/MeshLoaderCtrl.js'></script>
     <script type="text/javascript" src='js/MaterialManager.js'></script>
+    <script type="text/javascript" src='js/Weather.js'></script>
     <script type="text/javascript" src='js/index.js'></script>
 
 </body>

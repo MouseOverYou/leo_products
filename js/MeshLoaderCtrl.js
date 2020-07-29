@@ -40,6 +40,7 @@ function LoadAssets(scene, assetsManager) {
         task.loadedMeshes[0].position.y = 0
         task.loadedMeshes[0].parent = Truck_P
         Truck_P.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1)
+        Truck_P.rotation.y = 90 * (Math.PI / 180)
     }
 
     MesseLoaderTask.onError = function (task, message, exception) {
