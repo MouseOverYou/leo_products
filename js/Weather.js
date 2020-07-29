@@ -42,7 +42,7 @@ function CreateSky(scene){
 			case 52: setSkyConfig("material.luminance", skyboxMaterial.luminance, 0.1); break; // 4
 			case 53: setSkyConfig("material.luminance", skyboxMaterial.luminance, 1.0); break; // 5
 			
-			case 54: setSkyConfig("material.turbidity", skyboxMaterial.turbidity, 40); break; // 6
+			case 54: setSkyConfig("material.turbidity", skyboxMaterial.turbidity, 200); break; // 6
 			case 55: setSkyConfig("material.turbidity", skyboxMaterial.turbidity, 5); break; // 7
 			
             case 56: setSkyConfig("material.cameraOffset.y", skyboxMaterial.cameraOffset.y, 50); break; // 8
@@ -55,3 +55,33 @@ function CreateSky(scene){
 	setSkyConfig("material.inclination", skyboxMaterial.inclination, 0);
 
 }
+// utility
+window.random = function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+function MakeLightningSystem(config) {
+    var spriteManagerSpark = new BABYLON.SpriteManager("Lightning Sprites", "https://i.imgur.com/veoNWOM.png", 100, { width: 54, height: 184 }, config.scene);
+    //var spriteManagerSpark = new BABYLON.SpriteManager("Lightning Sprites", "assets/lightning_0.png", 100, { width: 1024/8, height: 512 }, config.scene);
+  
+    function SpawnLightningBolt(config) {
+      var spark = new BABYLON.Sprite("Lightning", spriteManagerSpark);
+      spark.playAnimation(0, 8, false, 60);
+      spark.height = config.height;
+      spark.width = config.width;
+    
+      spark.position = new BABYLON.Vector3(random(config.min.x, config.max.x), random(config.min.y, config.max.y), random(config.min.z, config.max.z));
+  
+      setTimeout(function() {
+        spark.dispose();
+      }, 8 * 60);
+  
+      setTimeout(function() {
+        SpawnLightningBolt(config);
+      }, random(8 * 60, 480 *4));
+    }
+  
+    setTimeout(function() {
+      SpawnLightningBolt(config);
+    }, random(8 * 60, 480 * 4));
+  }

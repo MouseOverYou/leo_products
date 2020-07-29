@@ -24,7 +24,7 @@ var createScene = function () {
     camera.panningSensibility = 0
     camera.lowerRadiusLimit = 10
     camera.upperRadiusLimit = 30
-    camera.upperBetaLimit = 90 * (Math.PI / 180)
+    camera.upperBetaLimit = 180 * (Math.PI / 180)
     camera.angularSensibilityX = 3000
     camera.angularSensibilityy = 3000
     camera.wheelPrecision = 10
@@ -32,25 +32,29 @@ var createScene = function () {
 
     //scene.clearColor = new BABYLON.Color3(0, 0, 0);
     //scene.ambientColor = new BABYLON.Color3(0, 0, 0);
+    var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+    sphere.position.y = 0;
+    sphere.position.z = 20
     CreateSky(scene)
+    // Lightning
+    MakeLightningSystem({
+        scene: scene,
+        max: new BABYLON.Vector3(20, 50, 50),
+        min: new BABYLON.Vector3(-20, 10, 25), 
+        width: 5,
+        height: 50
+    });
 
-    
+
     rain = BABYLON.ParticleHelper.CreateAsync("rain", scene, false).then((set) => {
         console.log(set)
-        for(const sys of set.systems) {
+        for (const sys of set.systems) {
             sys.emitRate = 600
             sys.maxSize = 5
 
         }
         set.start();
     });
-
-
-    scene.onPointerUp = function () {
-
-        //htmlVideo.play()
-    }
-
     return scene;
 };
 /******* End of the create scene function ******/
