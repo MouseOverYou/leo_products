@@ -6,32 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>weather C</title>
     <!-- Style-->
-    <style>
-        html,
-        body {
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        #renderCanvas {
-            width: 100%;
-            height: 100%;
-            touch-action: none;
-        }
-
-        .logo {
-            position: absolute;
-            bottom: 25px;
-            right: 25px;
-            z-index: 0;
-            max-width: 30vh;
-            height: auto;
-            pointer-events: none
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/loading_style.css">
     <!-- gsap animation-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.2/gsap.js"></script>
@@ -55,39 +31,54 @@
         <p id='debugger-text'>
         </p>
     </div>
-        <!--LOADING ANIMATION-->
-        <div id="customLoadingScreenDiv">
-            <div class="loading-balls-container">
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-            </div>
-            <div class="loading-text-container">
-                <div class="loading">
-                    <div class="loading__letter">L</div>
-                    <div class="loading__letter">o</div>
-                    <div class="loading__letter">a</div>
-                    <div class="loading__letter">d</div>
-                    <div class="loading__letter">i</div>
-                    <div class="loading__letter">n</div>
-                    <div class="loading__letter">g</div>
-                    <div class="loading__letter">.</div>
-                    <div class="loading__letter">.</div>
-                    <div class="loading__letter">.</div>
-                </div>
-            </div>
-    
+    <!--LOADING ANIMATION-->
+    <div id="customLoadingScreenDiv">
+        <div class="loading-balls-container">
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
         </div>
-        <!--FINISH LOADING ANIMATION-->
+        <div class="loading-text-container">
+            <div class="loading">
+                <div class="loading__letter">L</div>
+                <div class="loading__letter">o</div>
+                <div class="loading__letter">a</div>
+                <div class="loading__letter">d</div>
+                <div class="loading__letter">i</div>
+                <div class="loading__letter">n</div>
+                <div class="loading__letter">g</div>
+                <div class="loading__letter">.</div>
+                <div class="loading__letter">.</div>
+                <div class="loading__letter">.</div>
+            </div>
+        </div>
+
+    </div>
+    <!--FINISH LOADING ANIMATION-->
     <img class="logo" src="assets/Recordbay_Logo.png" alt="logo missing">
+
+    <div class="UI">
+        <div class= "UI-Holder">
+            <div id="sunny" class = "boxUI">
+                <i class="material-icons">wb_sunny</i>
+            </div>
+            <div id="rainy" class = "boxUI">
+                <i class="material-icons">grain</i>
+            </div>
+            <div id="stormy" class = "boxUI">
+                <i class="material-icons">flash_on</i>
+            </div>
+        </div>
+    </div>
 
     <canvas id="renderCanvas" touch-action="none"></canvas>
     <script type="text/javascript" src='js/HelperFunctions.js'></script>
     <script type="text/javascript" src='js/MeshLoaderCtrl.js'></script>
     <script type="text/javascript" src='js/MaterialManager.js'></script>
+    <script type="text/javascript" src='js/InputContoller.js'></script>
     <script type="text/javascript" src='js/Weather.js'></script>
     <script type="text/javascript" src='js/index.js'></script>
 

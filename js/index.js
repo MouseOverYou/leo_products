@@ -1,18 +1,18 @@
 
 var canvas = document.getElementById("renderCanvas"); // Get the canvas element 
 var engine = null;
-var scene = null;
+let scene = null;
 var sceneToRender = null;
 var createDefaultEngine = function () { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true }); };
 var page = document.title
 
-let rain;
+let rain, rainSystems;
 
 /******* Add the create scene function ******/
 var createScene = function () {
 
     // Create the scene space
-    var scene = new BABYLON.Scene(engine);
+    scene = new BABYLON.Scene(engine);
 
     var assetsManager = new BABYLON.AssetsManager(scene)
     LoadAssets(scene, assetsManager, page)
@@ -39,22 +39,13 @@ var createScene = function () {
     // Lightning
     MakeLightningSystem({
         scene: scene,
-        max: new BABYLON.Vector3(20, 50, 40),
-        min: new BABYLON.Vector3(-20, 10, 25), 
+        max: new BABYLON.Vector3(20, 50, -20),
+        min: new BABYLON.Vector3(-20, 10, 20), 
         width: 10  ,
         height: 50
     });
 
 
-    rain = BABYLON.ParticleHelper.CreateAsync("rain", scene, false).then((set) => {
-        console.log(set)
-        for (const sys of set.systems) {
-            sys.emitRate = 600
-            sys.maxSize = 5
-
-        }
-        set.start();
-    });
     return scene;
 };
 /******* End of the create scene function ******/
