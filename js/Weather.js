@@ -62,7 +62,7 @@ window.random = function(min, max) {
 
 function MakeLightningSystem(config) {
     //var spriteManagerSpark = new BABYLON.SpriteManager("Lightning Sprites", "https://i.imgur.com/veoNWOM.png", 100, { width: 54, height: 184 }, config.scene);
-    var spriteManagerSpark = new BABYLON.SpriteManager("Lightning Sprites", "assets/Lightning.png", 100, { width: 4096/9, height: 2048 }, config.scene);
+    var spriteManagerSpark = new BABYLON.SpriteManager("Lightning Sprites", "assets/Lightning_02.png", 100, { width: 4096/10, height: 2048 }, config.scene);
   
     function SpawnLightningBolt(config) {
       var spark = new BABYLON.Sprite("Lightning", spriteManagerSpark);
@@ -72,15 +72,18 @@ function MakeLightningSystem(config) {
     
       spark.position = new BABYLON.Vector3(random(config.min.x, config.max.x), random(config.min.y, config.max.y), random(config.min.z, config.max.z));
   
+      //kill lightning
       setTimeout(function() {
         spark.dispose();
       }, 8 * 60);
   
+      //create new lightning
       setTimeout(function() {
         SpawnLightningBolt(config);
       }, random(8 * 60, 480 *4));
     }
   
+    //start lightning
     setTimeout(function() {
       SpawnLightningBolt(config);
     }, random(8 * 60, 480 * 4));

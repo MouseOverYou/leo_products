@@ -39,9 +39,9 @@ var createScene = function () {
     // Lightning
     MakeLightningSystem({
         scene: scene,
-        max: new BABYLON.Vector3(20, 50, 50),
+        max: new BABYLON.Vector3(20, 50, 40),
         min: new BABYLON.Vector3(-20, 10, 25), 
-        width: 10,
+        width: 10  ,
         height: 50
     });
 
