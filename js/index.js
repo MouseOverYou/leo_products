@@ -41,7 +41,7 @@ var createScene = function () {
         scene: scene,
         max: new BABYLON.Vector3(20, 50, 50),
         min: new BABYLON.Vector3(-20, 10, 25), 
-        width: 5,
+        width: 10,
         height: 50
     });
 

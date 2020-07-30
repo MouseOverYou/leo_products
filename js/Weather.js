@@ -61,8 +61,8 @@ window.random = function(min, max) {
   };
 
 function MakeLightningSystem(config) {
-    var spriteManagerSpark = new BABYLON.SpriteManager("Lightning Sprites", "https://i.imgur.com/veoNWOM.png", 100, { width: 54, height: 184 }, config.scene);
-    //var spriteManagerSpark = new BABYLON.SpriteManager("Lightning Sprites", "assets/lightning_0.png", 100, { width: 1024/8, height: 512 }, config.scene);
+    //var spriteManagerSpark = new BABYLON.SpriteManager("Lightning Sprites", "https://i.imgur.com/veoNWOM.png", 100, { width: 54, height: 184 }, config.scene);
+    var spriteManagerSpark = new BABYLON.SpriteManager("Lightning Sprites", "assets/Lightning.png", 100, { width: 4096/9, height: 2048 }, config.scene);
   
     function SpawnLightningBolt(config) {
       var spark = new BABYLON.Sprite("Lightning", spriteManagerSpark);
