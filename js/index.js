@@ -32,9 +32,9 @@ var createScene = function () {
 
     //scene.clearColor = new BABYLON.Color3(0, 0, 0);
     //scene.ambientColor = new BABYLON.Color3(0, 0, 0);
-    var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
-    sphere.position.y = 0;
-    sphere.position.z = 20
+    // var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+    // sphere.position.y = 0;
+    // sphere.position.z = 20
     CreateSky(scene)
     // Lightning
     MakeLightningSystem({
