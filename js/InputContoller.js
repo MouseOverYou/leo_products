@@ -19,6 +19,10 @@ document.getElementById("stormy").addEventListener("mousedown", (event)=>{
     makeItSunny(false)
 })
 
+document.getElementById("download-file").addEventListener("mousedown", (event)=>{
+    console.log("download pdf")
+})
+
 let isRaining = false
 let isStorming = false
 function changeWeather(weather){
